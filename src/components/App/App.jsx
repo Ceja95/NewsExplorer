@@ -6,6 +6,6 @@ return (
   <Routes>
     <Route path="/" element={} />
     <Route path="/saved-news" element={} />
-    <Route path="*" element={} />
+    <Route path="*" element={<Navigate to="/" replace />} />
   </Routes>
 );
