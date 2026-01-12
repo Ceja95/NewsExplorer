@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 return (
   <Routes>
-    <Route path="/" element={} />
-    <Route path="/saved-news" element={} />
+    <Route path="/" element={<Main />} />
+    <Route path="/saved-news" element={<ProtectedRoute />} />
     <Route path="*" element={<Navigate to="/" replace />} />
   </Routes>
 );
