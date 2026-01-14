@@ -1,9 +1,23 @@
-import "./Header.css";
+import "../../blocks/Header.css";
 
 function Header() {
     return (
         <header className="header">
-            <h1 className="header-title">NewsExplorer</h1>
+            <div className="header-menu">
+
+                <p className="header-title">NewsExplorer</p>
+
+                <div className="header-buttons">
+                    <button className="header-butten-home">
+                        Home
+                    </button>
+                    <button className="header-button-signin">
+                        Sign in
+                    </button>
+                </div>
+
+            </div>
+
         </header>
     )
 }

@@ -1,0 +1,25 @@
+.header {
+  margin: 0;
+  width: 1440px;
+  height: 80px;
+  border-bottom: solid 1px #000;
+}
+
+.header-menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-title {
+}
+
+.header-buttons {
+}
+
+.header-butten-home {
+  border: none;
+  border-bottom: solid 1px #000;
+}
+
+.header-button-signin {
+}
