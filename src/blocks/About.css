@@ -1,0 +1,25 @@
+.about {
+    max-height: 1440px;
+    background-color: #fff;
+}
+
+.about__container {
+      display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about__image {
+  width: 464px;
+  height: 464px;
+  margin-top: 80px;
+  border-radius: 1000px;
+}
+
+.about__title {
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.about__text {
+}

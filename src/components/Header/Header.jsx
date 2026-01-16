@@ -3,15 +3,16 @@ import "../../blocks/Header.css";
 function Header() {
     return (
         <header className="header">
-            <div className="header-menu">
+            <div className="header__menu">
 
-                <p className="header-title">NewsExplorer</p>
+                <p className="header__title">NewsExplorer</p>
 
-                <div className="header-buttons">
-                    <button className="header-butten-home">
+                <div className="header__buttons">
+                    <button className="header__buttons header__butten-home">
                         Home
                     </button>
-                    <button className="header-button-signin">
+                    
+                    <button className="header__button header__button-signin">
                         Sign in
                     </button>
                 </div>

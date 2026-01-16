@@ -1,25 +1,41 @@
 .header {
-  margin: 0;
   width: 1440px;
   height: 80px;
-  border-bottom: solid 1px #000;
+  border-bottom: solid 1px #fff;
 }
 
-.header-menu {
+.header__menu {
   display: flex;
   justify-content: space-between;
 }
 
-.header-title {
+.header__title {
+  margin-top: 30px;
+  margin-left: 104px;
+  margin-bottom: 26px;
+  color: #fff;
 }
 
-.header-buttons {
+.header__buttons {
+  display: flex;
+  align-items: center;
+  margin-right: 104px;
 }
 
-.header-butten-home {
+.header__butten-home {
+  padding: 0;
   border: none;
-  border-bottom: solid 1px #000;
+  border-bottom: solid 3px #fff;
+  background-color: transparent;
+  color: #fff;
 }
 
-.header-button-signin {
+.header__button-signin {
+  padding: 0;
+  width: 174px;
+  height: 48px;
+  border-radius: 100px;
+  border: solid 1px #fff;
+  background-color: transparent;
+  color: #fff;
 }
