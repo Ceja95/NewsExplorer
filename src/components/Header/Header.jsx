@@ -6,13 +6,13 @@ function Header() {
             <div className="header__menu">
 
                 <p className="header__title">NewsExplorer</p>
-
+                
                 <div className="header__buttons">
-                    <button className="header__buttons header__butten-home">
+                    <button id="home" className="header__buttons header__buttens-home">
                         Home
                     </button>
-                    
-                    <button className="header__button header__button-signin">
+
+                    <button className="header__buttons header__buttons-signin">
                         Sign in
                     </button>
                 </div>
@@ -20,7 +20,7 @@ function Header() {
             </div>
 
         </header>
-    )
+    );
 }
 
 export default Header;

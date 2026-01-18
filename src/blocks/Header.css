@@ -1,5 +1,4 @@
 .header {
-  width: 1440px;
   height: 80px;
   border-bottom: solid 1px #fff;
 }
@@ -17,25 +16,29 @@
 }
 
 .header__buttons {
-  display: flex;
-  align-items: center;
   margin-right: 104px;
+  margin-top: 19px;
 }
 
-.header__butten-home {
+.header__buttens-home {
   padding: 0;
+  margin: 0;
   border: none;
   border-bottom: solid 3px #fff;
   background-color: transparent;
   color: #fff;
+  cursor: pointer;
 }
 
-.header__button-signin {
+.header__buttons-signin {
   padding: 0;
+  margin: 0;
+  margin-left: 42px;
   width: 174px;
   height: 48px;
   border-radius: 100px;
   border: solid 1px #fff;
   background-color: transparent;
   color: #fff;
+  cursor: pointer;
 }

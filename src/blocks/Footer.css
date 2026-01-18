@@ -1,0 +1,38 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 32px;
+  padding-right: 104px;
+  padding-left: 104px;
+  padding-bottom: 26px;
+  height: 80px;
+}
+
+.footer__text {
+}
+
+.footer__links {
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+}
+
+.footer__link {
+  margin-right: 40px;
+  text-decoration: none;
+}
+
+#github-icon {
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  margin-right: 26px;
+}
+
+#linkedin-icon {
+  margin-right: 0;
+}
