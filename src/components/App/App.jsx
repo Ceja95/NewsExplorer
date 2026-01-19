@@ -10,6 +10,10 @@ import Footer from "../Footer/Footer";
 
 function App() {
 
+  const [activeModal, setActiveModal] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState({});
+
   return (
     <div className="page">
 
