@@ -8,6 +8,7 @@ import Header from "../Header/Header";
 import About from "../About/About";
 import Footer from "../Footer/Footer";
 import SearchForm from "../SearchForm/SearchForm";
+import NewsCard from "../NewsCard/NewsCard";
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
         <About />
         <Footer />
         <SearchForm onSearch={handleSearch} />
+        <NewsCard />
       </div>
 
     </div>
