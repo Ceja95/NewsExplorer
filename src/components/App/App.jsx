@@ -7,6 +7,7 @@ import Main from "../Main/Main";
 import Header from "../Header/Header";
 import About from "../About/About";
 import Footer from "../Footer/Footer";
+import SearchForm from "../SearchForm/SearchForm";
 
 function App() {
 
@@ -14,14 +15,24 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
 
+
+
+  const handleSearch = async (encodedQuery) => {
+    const res = await fetch(`/article?.${encodedQuery}`);
+    const data = await res.json();
+
+    setArticles(data.articles || []);
+  };
+
   return (
     <div className="page">
 
       <div className="page__container">
         <Header />
-        <Main />
+        <Main onSearch={handleSearch} />
         <About />
         <Footer />
+        <SearchForm onSearch={handleSearch} />
       </div>
 
     </div>
