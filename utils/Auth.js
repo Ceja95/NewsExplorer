@@ -1,4 +1,4 @@
-import newsApiBaseUrl from "./Constants.js";
+import {newsApiBaseUrl} from "./Constants.js";
 import { checkResponse } from "./Api.js";
 
 const register = ({ name, email, password }) => {
@@ -30,4 +30,4 @@ const checkToken = (token) => {
   }).then(checkResponse);
 };
 
-export { register, login };
+export { register, login, checkToken };

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Main from "../Main/Main";
 
 function NewsCard() {
     const [articles, setArticles] = useState([]);

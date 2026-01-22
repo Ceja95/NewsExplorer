@@ -1,4 +1,4 @@
-import newsApiBaseUrl from "./Constants.js";
+import { newsApiBaseUrl } from "./Constants";
 
 export const checkResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: $(res.status)`);
@@ -14,7 +14,7 @@ function getArticles() {
 }
 
 function addCardSave(_id, token) {
-  return fetch(`${baseUrl}/items/${_id}/likes`, {
+  return fetch(`${newsApiBaseUrl}/articles/${_id}/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -24,7 +24,7 @@ function addCardSave(_id, token) {
 }
 
 function removeCardSave(_id, token) {
-  return fetch(`${baseUrl}/items/${_id}/likes`, {
+  return fetch(`${newsApiBaseUrl}/articles/${_id}/likes`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -33,4 +33,4 @@ function removeCardSave(_id, token) {
   }).then(checkResponse);
 }
 
-export { getArticles };
+export { getArticles, addCardSave, removeCardSave };
