@@ -10,8 +10,10 @@ import About from "../About/About";
 import Footer from "../Footer/Footer";
 import SearchForm from "../SearchForm/SearchForm";
 import NewsCard from "../NewsCard/NewsCard";
-import { checkToken } from "../../../utils/Auth";
-import { getArticles } from "../../../utils/Api";
+import Preloader from "../Preloader/Preloader";
+import { checkToken, register, login } from "../../../utils/Auth";
+import { getArticles, addCardSave, removeCardSave } from "../../../utils/Api";
+import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 
 function App() {
@@ -24,9 +26,13 @@ function App() {
   const navigate = useNavigate();
 
   const loginClick = () => {
-    console.log(loginClick);
     setActiveModal("login");
   };
+
+  const registerClick = () => {
+    setActiveModal("register");
+  };
+
 
   const closeActiveModal = () => {
     setActiveModal("");
@@ -44,11 +50,28 @@ function App() {
     }
   };
 
-  const handleSearch = async (encodedQuery) => {
-    const res = await fetch(`/article?.${encodedQuery}`);
-    const data = await res.json();
+  
+  const handleRegisterSubmit = ({ name, imageUrl, password, email }) => {
+    const registration = {
+      name,
+      avatar: imageUrl,
+      password,
+      email,
+    };
 
-    setArticles(data.articles || []);
+    register(registration)
+      .then(() => {
+        return login({ email, password });
+      })
+      .then((data) => {
+        localStorage.setItem("jwt", data.token);
+        setIsLoggedIn(true);
+        closeActiveModal();
+        return checkToken(data.token);
+      })
+      .catch((err) => {
+        console.error("Registration or login failed:", err);
+      });
   };
 
 
@@ -71,23 +94,19 @@ function App() {
       .catch((err) => {
         console.error("Login error:", err);
       });
-  }
+  };
 
   useEffect(() => {
-    getArticles()
-      .then((data) => {
-        setArticles(data);
-      })
-      .catch(console.error);
-    const token = localStorage.getItem("jwt");
-    setToken(token);
-    checkToken(token)
-      .then((currentUser) => {
-        setCurrentUser(currentUser);
-        setIsLoggedIn(true);
-      })
-      .catch(console.error);
-  }, []);
+    if (activeModal === "") return;
+    document.addEventListener("mousedown", closeOnOverlayClick);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("mousedown", closeOnOverlayClick);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [activeModal]);
+
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -95,22 +114,30 @@ function App() {
 
         <div className="page__container">
 
-          <Header loginClick={loginClick} />
+          <Header registerClick={registerClick} loginClick={loginClick} />
 
-          <Main onSearch={handleSearch} />
+          <Main />
 
           <About />
 
           <Footer />
 
-          <SearchForm onSearch={handleSearch} />
+          <SearchForm  />
 
           <NewsCard />
+
+          <RegisterModal
+            isOpen={activeModal === "register"}
+            closeActiveModal={closeActiveModal}
+            closeOnOverlayClick={closeOnOverlayClick}
+            handleRegister={handleRegisterSubmit}
+            onButtonNoteClick={loginClick}
+          />
 
           <LoginModal
             isOpen={activeModal === "login"}
             handleLoginSubmit={handleLoginSubmit}
-            /*onButtonNoteClick={registerClick}*/
+            onButtonNoteClick={registerClick}
             closeActiveModal={closeActiveModal}
             closeOnOverlayClick={closeOnOverlayClick}
           />

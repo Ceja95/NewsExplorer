@@ -29,7 +29,7 @@ function Header({ loginClick }) {
                         Home
                     </button>
 
-                    {!loggedIn && <button  loginClick={loginClick} type="button" className="header__buttons header__buttons-signin">
+                    {!loggedIn && <button  onClick={loginClick} type="button" className="header__buttons header__buttons-signin">
                         Sign in
                     </button>
                     }

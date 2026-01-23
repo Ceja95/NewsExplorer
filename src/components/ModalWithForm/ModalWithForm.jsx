@@ -1,6 +1,6 @@
 import "../../blocks/ModalWithForm.css";
 
-function ModalWithForm({  children, buttonText, title, isOpen, closeActiveModal, handleSubmit, id, buttonNote /*, onButtonNoteClick*/ }) {
+function ModalWithForm({ children, buttonText, title, isOpen, closeActiveModal, handleSubmit, id, buttonNote, onButtonNoteClick }) {
     return (
         <div className={`modal ${isOpen && "modal_opened"}`}>
             <div id={id} className="modal__content">
@@ -14,7 +14,7 @@ function ModalWithForm({  children, buttonText, title, isOpen, closeActiveModal,
                             {buttonText}
                         </button>
                         {buttonNote && (
-                            <button type="button" className="modal__button-note" /*onClick={onButtonNoteClick}*/ >
+                            <button type="button" className="modal__button-note" onClick={onButtonNoteClick} >
                                 {buttonNote}
                             </button>
                         )}

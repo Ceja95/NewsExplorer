@@ -11,7 +11,7 @@ function getArticles() {
       "Content-Type": "application/json",
     },
   }).then(checkResponse);
-}
+};
 
 function addCardSave(_id, token) {
   return fetch(`${newsApiBaseUrl}/articles/${_id}/likes`, {
@@ -21,7 +21,7 @@ function addCardSave(_id, token) {
       authorization: `Bearer ${token}`,
     },
   }).then(checkResponse);
-}
+};
 
 function removeCardSave(_id, token) {
   return fetch(`${newsApiBaseUrl}/articles/${_id}/likes`, {
@@ -31,6 +31,6 @@ function removeCardSave(_id, token) {
       authorization: `Bearer ${token}`,
     },
   }).then(checkResponse);
-}
+};
 
 export { getArticles, addCardSave, removeCardSave };
